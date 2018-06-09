@@ -4162,9 +4162,9 @@ react-is@^16.3.1:
   version "16.4.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.4.0.tgz#cc9fdc855ac34d2e7d9d2eb7059bbc240d35ffcf"
 
-react-native-navigation-apps@1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/react-native-navigation-apps/-/react-native-navigation-apps-1.0.3.tgz#8c5664a69aba6feb55f0a4165670cc0e6da7766a"
+react-native-navigation-apps@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/react-native-navigation-apps/-/react-native-navigation-apps-1.0.4.tgz#174de69c3997ab62126921e3f0ad5d20c33df00b"
   dependencies:
     prop-types "^15.6.1"
 
