@@ -6,7 +6,6 @@ import {
     Image,
     View,
     Modal,
-    TouchableHighlight,
     Text,
     StyleSheet
 } from 'react-native';
@@ -130,8 +129,7 @@ class NavigationApps extends Component {
                 const navAppItem = this.state.navApps[navApp];
 
                 return (
-                    <TouchableOpacity onPress={() => this.handleNavApp(navApp)} key={key}
-                                      style={{flexDirection: 'row'}}>
+                    <TouchableOpacity onPress={() => this.handleNavApp(navApp)} key={key}>
                         <Image style={{width: iconSize, height: iconSize}} source={navAppItem.icon}/>
                     </TouchableOpacity>
                 )
@@ -150,11 +148,11 @@ class NavigationApps extends Component {
             const {modalBtnOpenStyle, modalBtnOpenTitle, modalBtnOpenTextStyle} = this.props;
 
             return (
-                <TouchableHighlight style={modalBtnOpenStyle} onPress={() => {
+                <TouchableOpacity style={modalBtnOpenStyle} onPress={() => {
                     setModalVisible(true)
                 }}>
                     <Text style={modalBtnOpenTextStyle}>{modalBtnOpenTitle}</Text>
-                </TouchableHighlight>
+                </TouchableOpacity>
             )
 
         };
@@ -164,11 +162,11 @@ class NavigationApps extends Component {
             const {modalBtnCloseStyle,modalBtnCloseTitle, modalBtnCloseTextStyle} = this.props;
 
             return (
-                <TouchableHighlight style={modalBtnCloseStyle} onPress={() => {
+                <TouchableOpacity style={modalBtnCloseStyle} onPress={() => {
                     setModalVisible(false)
                 }}>
                     <Text style={modalBtnCloseTextStyle}>{modalBtnCloseTitle}</Text>
-                </TouchableHighlight>
+                </TouchableOpacity>
             )
         };
 
