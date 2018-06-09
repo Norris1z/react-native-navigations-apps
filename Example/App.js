@@ -15,7 +15,8 @@ export default class App extends Component {
                     modalBtnCloseTextStyle={{fontSize:20}}
                     modalBtnOpenTextStyle={{fontSize:20}}
                     iconSize={100}
-                    viewMode={'modal'}
+                    viewMode={'view'}
+                    address={'new york'}
                 />
             </View>
         );
