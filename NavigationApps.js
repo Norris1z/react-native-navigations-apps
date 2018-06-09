@@ -235,7 +235,7 @@ NavigationApps.defaultProps = {
         address: '',
         lat: '',
         lon: '',
-        travelModes: 'driving',
+        travelMode: 'driving',
         icon: null
     },
     maps: {
@@ -243,7 +243,7 @@ NavigationApps.defaultProps = {
         address: '',
         lat: '',
         lon: '',
-        travelModes: 'd',
+        travelMode: 'd',
         icon: null
     },
     iconSize: 100,

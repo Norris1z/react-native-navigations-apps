@@ -21,3 +21,10 @@ export const googleMapsTravelModes = {
 };
 
 
+export const mapsTravelModes = {
+    'driving': 'd',
+    'walking': 'w',
+    'transit': 'r'
+};
+
+
