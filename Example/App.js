@@ -9,11 +9,13 @@ export default class App extends Component {
             <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
                 <NavigationApps
                     row
-                    modalProps={{animationType: 'slide', transparent: true}}
+                    modalProps={{animationType: 'slide', transparent: false}}
                     modalBtnCloseTitle={'close modal'}
                     modalBtnOpenTitle={'open modal'}
-                    modalBtnCloseTextStyle={{color:'black',fontSize:20}}
-                    modalBtnOpenTextStyle={{color:'black',fontSize:20}}
+                    modalBtnCloseTextStyle={{fontSize:20}}
+                    modalBtnOpenTextStyle={{fontSize:20}}
+                    iconSize={100}
+                    viewMode={'modal'}
                 />
             </View>
         );
