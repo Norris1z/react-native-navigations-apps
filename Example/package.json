@@ -1,5 +1,5 @@
 {
-  "name": "navigationApps",
+  "name": "Example",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -7,10 +7,9 @@
     "test": "jest"
   },
   "dependencies": {
-    "prop-types": "^15.6.1",
     "react": "16.3.1",
-    "react-native": "0.55.4"
-
+    "react-native": "0.55.4",
+    "react-native-navigation-apps": "0.55.4"
   },
   "devDependencies": {
     "babel-jest": "23.0.1",

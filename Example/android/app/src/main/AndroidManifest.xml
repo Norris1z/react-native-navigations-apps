@@ -1,4 +1,5 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.navigationapps">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
@@ -11,27 +12,13 @@
       android:theme="@style/AppTheme">
       <activity
         android:name=".MainActivity"
-        android:launchMode="singleTask"
         android:label="@string/app_name"
         android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
         android:windowSoftInputMode="adjustResize">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
-
         </intent-filter>
-
-          <intent-filter android:label="filter_react_native">
-              <action android:name="android.intent.action.VIEW" />
-              <category android:name="android.intent.category.BROWSABLE" />
-              <category android:name="android.intent.category.DEFAULT" />
-              <data android:scheme="deeplink" android:host="waze"/>
-              <data android:scheme="deeplink" android:host="comgooglemaps"/>
-
-          </intent-filter>
-
-
-
       </activity>
       <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
     </application>
