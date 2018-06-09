@@ -85,6 +85,6 @@ To use `waze` `google maps` on iOS devices you nust to add this lines to the `in
 ```
 
 ## Android Usage
-To use `waze` `google maps` on iOS devices you nust to add this lines to the `info.plist`
+soon
 
 
