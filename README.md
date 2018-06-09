@@ -80,7 +80,6 @@ To use `waze` `google maps` on iOS devices you nust to add this lines to the `in
 	<array>
 		<string>comgooglemaps</string>
 		<string>waze</string>
-		<string>geo</string>
 	</array>
 ```
 

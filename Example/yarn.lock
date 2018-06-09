@@ -4094,7 +4094,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.8, prop-types@^15.6.0:
+prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1:
   version "15.6.1"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.1.tgz#36644453564255ddda391191fb3a125cbdf654ca"
   dependencies:
@@ -4161,6 +4161,12 @@ react-devtools-core@3.1.0:
 react-is@^16.3.1:
   version "16.4.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.4.0.tgz#cc9fdc855ac34d2e7d9d2eb7059bbc240d35ffcf"
+
+react-native-navigation-apps@0.55.4:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-native-navigation-apps/-/react-native-navigation-apps-1.0.1.tgz#8f21e265360bbb7fdc418ae0c58a8e84b20a7945"
+  dependencies:
+    prop-types "^15.6.1"
 
 react-native@0.55.4:
   version "0.55.4"
