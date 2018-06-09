@@ -41,12 +41,11 @@ import {NavigationApps,googleMapsActions,wazeActions,googleMapsTravelModes} from
 
 
 ### Details
-Each app (waze,google maps,ios maps) has its own configuration an `action` and `address`
+Each app (waze,google maps,ios maps) has its own configuration an `action` `address` and `lat` `lon`
 action can be :
 `navigateByAddress` -- navigate to an address by address (text)
 `navigateByLatAndLon` -- navigate to an address by Latitude and Longitude
 `searchLocationByLatAndLon` -- only search an address (not navigate) by Latitude and Longitude
-
 
 ### Properties
 
