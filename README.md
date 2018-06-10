@@ -6,6 +6,10 @@ Open & Navigate With External Navigation Apps (Waze,GoogleMaps,iOS Maps) from re
 This package is a solution to open and use the navigation apps from your react-native app
 for now its only support waze google maps and ios maps for ios devices
 
+## Example
+
+<a href="https://imgflip.com/gif/2byelf"><img src="https://i.imgflip.com/2byelf.gif" title="made at imgflip.com"/></a>
+
 ## Installation
 
 ```
@@ -15,7 +19,7 @@ npm -i --save react-native-navigation-apps
 yarn add react-native-navigation-apps
 ```
 
-### Usage
+## Usage
 ```javascript
 import {NavigationApps,googleMapsActions,wazeActions,googleMapsTravelModes} from "./src/components/NavigationApss";
 
@@ -57,22 +61,22 @@ travelMode can be :
 
 | Prop                  | Description                                                                                                                                                                                                                                                                                                             | Default        |
 | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| **`row`**         | align navigation apps as row     | `false` |
-| **`viewMode`**       | Set navigation apps display as `modal` or `view` mode  | `view`|
-| **`iconSize`**       | icon size of the navigation app | `100`|
-| **`modalProps`**     | react native modal props       | `{}` |
-| **`modalContainerStyle`**        | Styling modal container   | `{}`  |
-| **`modalBtnCloseContainerStyle`**          | Styling the modal close button container |`{}`
-| **`modalBtnCloseStyle`**           | Styling the modal close button   |`{}`|
-| **`modalBtnCloseTextStyle`**           | Styling the modal close button text  |`{}`|
-| **`modalBtnOpenStyle`**           | Styling the modal open button  |`{}`|
-| **`modalBtnOpenTextStyle`**           | Styling the modal open button text  | `{}` |
-| **`modalBtnOpenTitle`**           | Title for the the modal open button   |   `''`    |
-| **`modalBtnCloseTitle`**           | Title for the modal close button   |   `''`    |
-| **`address`**           | Set the default address for the nvigation apps   |   `''`    |
-| **`waze`**           | Set configuration for waze : `action` `address` `lat` `lon` and `icon` ... if `address` not set waze will take the address from the default `address` prop |   `address:'',action:navigateByAddress`,`lat`:'',`lon`:''    |
-| **`googleMaps`**           |Set configuration for google maps `action` `address` `lat` `lon` `icon` and `travelMode`  ... if `address` not set google maps will take the address from the default `address` prop   | `address:'',action:navigateByAddress`,`lat`:'',`lon`:`travelMode`:'driving'     |
-| **`maps`**           | Set configuration for ios maps  `action` `address` `lat` `lon` `icon` and `travelMode`  ... if `address` not set ios maps will take the address from the default `address` prop |   `address:'',action:navigateByAddress`,`lat`:'',`lon`:'',`travelMode`:'driving'   |
+| **`row`**                        | align navigation apps as row                                                  | `false` |
+| **`viewMode`**                   | Set navigation apps display as `modal` or `view` mode                      | `view`  |
+| **`iconSize`**                   | icon size of the navigation app                                            | `100`   |
+| **`modalProps`**                 | react native modal props                                                   |  `{}`   |
+| **`modalContainerStyle`**        | Styling modal container                                        |  `{}`   |
+| **`modalBtnCloseContainerStyle`**| Styling the modal close button container             |  `{}`   |
+| **`modalBtnCloseStyle`**         | Styling the modal close button                               |  `{}`   |
+| **`modalBtnCloseTextStyle`**     | Styling the modal close button text                      |  `{}`   |
+| **`modalBtnOpenStyle`**          | Styling the modal open button                                 |  `{}`   |
+| **`modalBtnOpenTextStyle`**      | Styling the modal open button text                        |  `{}`   |
+| **`modalBtnOpenTitle`**          | Title for the the modal open button                           |  `''`   |
+| **`modalBtnCloseTitle`**         | Title for the modal close button                             |  `''`   |
+| **`address`**                    | Set the default address for the nvigation apps                          |  `''`   |
+| **`waze`**                       | Set configuration for waze : `action` `address` `lat` `lon` and `icon` ... if `address` not set waze will take the address from the default `address` prop |  `address:'',action:navigateByAddress`,`lat`:'',`lon`:''    |
+| **`googleMaps`**                 |Set configuration for google maps `action` `address` `lat` `lon` `icon` and `travelMode`  ... if `address` not set google maps will take the address from the default `address` prop   | `address:'',action:navigateByAddress`,`lat`:'',`lon`:`travelMode`:'driving'|
+| **`maps`**                       | Set configuration for ios maps  `action` `address` `lat` `lon` `icon` and `travelMode`  ... if `address` not set ios maps will take the address from the default `address` prop |   `address:'',action:navigateByAddress`,`lat`:'',`lon`:'',`travelMode`:'driving'   |
 
 ## IOS Usage 
 To use `waze` `google maps` on iOS devices you nust to add this lines to the `info.plist`
@@ -83,8 +87,4 @@ To use `waze` `google maps` on iOS devices you nust to add this lines to the `in
 		<string>waze</string>
 	</array>
 ```
-
-## Android Usage
-soon
-
 

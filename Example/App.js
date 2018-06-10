@@ -16,7 +16,7 @@ export default class App extends Component {
                     modalBtnOpenTextStyle={{fontSize:20}}
                     iconSize={100}
                     viewMode={'view'}
-                    googleMaps={{lat:40.712775,lon:-74.005973,action:googleMapsActions.navigateByLatAndLon}}
+                    address={"new york"}
                 />
             </View>
         );
