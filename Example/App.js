@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View} from 'react-native';
-import {NavigationApps} from "react-native-navigation-apps";
+import {NavigationApps,wazeActions,googleMapsActions} from "react-native-navigation-apps";
 
 
 export default class App extends Component {
@@ -16,7 +16,7 @@ export default class App extends Component {
                     modalBtnOpenTextStyle={{fontSize:20}}
                     iconSize={100}
                     viewMode={'view'}
-                    address={'new york'}
+                    googleMaps={{lat:40.712775,lon:-74.005973,action:googleMapsActions.navigateByLatAndLon}}
                 />
             </View>
         );

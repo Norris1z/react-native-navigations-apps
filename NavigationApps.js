@@ -52,8 +52,8 @@ class NavigationApps extends Component {
                             appDeepLinkUriToUse: 'comgooglemaps://?'
                         },
                         android: {
-                            appDeepLinkUri: 'geo://',
-                            appDeepLinkUriToUse: 'geo://?',
+                            appDeepLinkUri: 'https://www.google.com/maps/',
+                            appDeepLinkUriToUse: 'https://www.google.com/maps/',
                         }
                     }),
                     title: 'google maps',
@@ -65,10 +65,20 @@ class NavigationApps extends Component {
                             storeUri: 'market://details?id=com.google.android.apps.maps',
                         }
                     }),
+                    ...Platform.select({
+                        ios:{
+                            navigateByAddress: ({address, travelMode}) => this.state.navApps.googleMaps.appDeepLinkUriToUse + `daddr=${address}&directionsmode=${travelMode}`,
+                            navigateByLatAndLon: ({address, travelMode, lat, lon}) => encodeURI(this.state.navApps.maps.appDeepLinkUriToUse + `daddr=${address}&directionsmode=${travelMode}&ll=${lat},${lon}`),
+                            searchLocationByLatAndLon: ({lat, lon}) => encodeURI(this.state.navApps.googleMaps.appDeepLinkUriToUse + `search/?api=1&query=${lat},${lon}`)
+                        },
+                        android:{
+                            navigateByAddress: ({address, travelMode}) => this.state.navApps.googleMaps.appDeepLinkUriToUse + `dir/?api=1&destination=${address}&travelmode=${travelMode}`,
+                            navigateByLatAndLon: ({address, travelMode, lat, lon}) => encodeURI(this.state.navApps.googleMaps.appDeepLinkUriToUse + `dir/?api=1&query=${lat},${lon}`),
+                            searchLocationByLatAndLon: ({lat, lon}) => encodeURI(this.state.navApps.googleMaps.appDeepLinkUriToUse + `search/?api=1&query=${lat},${lon}`)
+                        }
+                    }),
                     icon: props.googleMaps.icon ? props.googleMaps.icon : require('./assets/googleMapsIcon.png'),
-                    navigateByAddress: ({address, travelMode}) => this.state.navApps.googleMaps.appDeepLinkUriToUse + `daddr=${address}&directionsmode=${travelMode}`,
-                    navigateByLatAndLon: ({address, travelMode, lan, lon}) => encodeURI(this.state.navApps.maps.appDeepLinkUriToUse + `daddr=${address}&directionsmode=${travelMode}&ll=${lan},${lon}`),
-                    searchLocationByLatAndLon: ({lat, lon}) => encodeURI(this.state.navApps.googleMaps.appDeepLinkUriToUse + `search/?api=1&query=${lat},${lon}`)
+
                 },
                 ...Platform.select({
                     ios: {
@@ -83,7 +93,7 @@ class NavigationApps extends Component {
                                 'publicTransit': 'r'
                             },
                             navigateByAddress: ({address, travelMode}) => encodeURI(this.state.navApps.maps.appDeepLinkUriToUse + `daddr=${address}&dirflg=${travelMode}`),
-                            navigateByLatAndLon: ({address, travelMode, lan, lon}) => encodeURI(this.state.navApps.maps.appDeepLinkUriToUse + `daddr=${address}&dirflg=${travelMode}&ll=${lan},${lon}`),
+                            navigateByLatAndLon: ({address, travelMode, lat, lon}) => encodeURI(this.state.navApps.maps.appDeepLinkUriToUse + `daddr=${address}&dirflg=${travelMode}&ll=${llatan},${lon}`),
                             searchLocationByLatAndLon: ({lat, lon}) => encodeURI(this.state.navApps.maps.appDeepLinkUriToUse + `ll=${lat},${lon}`)
 
                         },
