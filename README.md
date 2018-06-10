@@ -88,7 +88,3 @@ To use `waze` `google maps` on iOS devices you nust to add this lines to the `in
 	</array>
 ```
 
-## Android Usage
-soon
-
-
