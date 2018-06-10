@@ -79,7 +79,7 @@ travelMode can be :
 | **`maps`**                       | Set configuration for ios maps  `action` `address` `lat` `lon` `icon` and `travelMode`  ... if `address` not set ios maps will take the address from the default `address` prop |   `address:'',action:navigateByAddress`,`lat`:'',`lon`:'',`travelMode`:'driving'   |
 
 ## IOS Usage 
-To use `waze` `google maps` on iOS devices you nust to add this lines to the `info.plist`
+To use `waze` and `google maps` on iOS devices you must add this lines to the `info.plist` file
 ```
 <key>LSApplicationQueriesSchemes</key>
 	<array>
