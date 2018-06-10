@@ -6,6 +6,10 @@ Open & Navigate With External Navigation Apps (Waze,GoogleMaps,iOS Maps) from re
 This package is a solution to open and use the navigation apps from your react-native app
 for now its only support waze google maps and ios maps for ios devices
 
+## Example
+
+<a href="https://imgflip.com/gif/2byelf"><img src="https://i.imgflip.com/2byelf.gif" title="made at imgflip.com"/></a>
+
 ## Installation
 
 ```
@@ -15,7 +19,7 @@ npm -i --save react-native-navigation-apps
 yarn add react-native-navigation-apps
 ```
 
-### Usage
+## Usage
 ```javascript
 import {NavigationApps,googleMapsActions,wazeActions,googleMapsTravelModes} from "./src/components/NavigationApss";
 
