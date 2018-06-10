@@ -33,9 +33,9 @@ import {NavigationApps,googleMapsActions,wazeActions,googleMapsTravelModes} from
                     row
                     viewMode='modal'
                     address='some default address to navigate'
-                    waze={{lat:'',lon:'',action: wazeActions.navigateByAddress}}
-                    googleMaps={{lat:'',lon:'',action: googleMapsActions.navigateByAddress,travelMode:googleMapsTravelModes.driving}}
-                    maps={{lat:'',lon:'',action: mapsActions.navigateByAddress,travelMode:mapsTravelModes.driving}}
+                    waze={{address:'',lat:'',lon:'',action: wazeActions.navigateByAddress}}
+                    googleMaps={{search,lat:'',lon:'',action: googleMapsActions.navigateByAddress,travelMode:googleMapsTravelModes.driving}}
+                    maps={{search,lat:'',lon:'',action: mapsActions.navigateByAddress,travelMode:mapsTravelModes.driving}}
                 />
 ```
 
