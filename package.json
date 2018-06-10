@@ -1,6 +1,6 @@
 {
   "name": "react-native-navigation-apps",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Open & Navigate With External Navigation Apps (Waze,GoogleMaps,iOS Maps) from react native",
   "main": "index.js",
   "scripts": {
