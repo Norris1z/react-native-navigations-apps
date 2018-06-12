@@ -21,7 +21,7 @@ yarn add react-native-navigation-apps
 
 ## Usage
 ```javascript
-import {NavigationApps,googleMapsActions,wazeActions,googleMapsTravelModes} from "./src/components/NavigationApss";
+import {NavigationApps,googleMapsActions,wazeActions,googleMapsTravelModes} from "react-native-navigation-apps";
 
       <NavigationApps
                     modalProps={{animationType:'slide',transparent:true}}
