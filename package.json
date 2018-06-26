@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "npm-version": "npm version patch",
-    "npm-publish": "npm publish"
+    "npm-version": "npm version patch"
   },
   "repository": {
     "type": "git",
