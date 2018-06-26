@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import PropTypes from 'prop-types';
 import {googleMapsActions, mapsActions, wazeActions} from "./NavigationAppsTools";
+import ActionSheet from 'react-native-actionsheet';
 
 class NavigationApps extends Component {
 
@@ -102,12 +103,14 @@ class NavigationApps extends Component {
                 })
 
             },
-            modalVisible: false
+            modalVisible: false,
         }
+        this.actionSheetRef
     }
 
     handleNavApp = (navApp) => {
 
+        debugger
         const navAppOptions = this.props[navApp];
         const navAppItem = this.state.navApps[navApp];
         const {storeUri, appDeepLinkUri} = navAppItem;
@@ -202,50 +205,55 @@ class NavigationApps extends Component {
 
     renderNavigationAppsAsActionSheet = () => {
 
-        const setModalVisible = (visible) => {
-            this.setState({modalVisible: visible});
-        };
-        const renderModalBtnOpen = () => {
 
-            const {modalBtnOpenStyle, modalBtnOpenTitle, modalBtnOpenTextStyle} = this.props;
-
+        const renderActionSheetOpenBtn = () => {
+            const {modalBtnOpenStyle, actionSheetBtnOpenTitle, modalBtnOpenTextStyle} = this.props;
             return (
-                <TouchableOpacity style={modalBtnOpenStyle} onPress={() => {
-                    setModalVisible(true)
-                }}>
-                    <Text style={modalBtnOpenTextStyle}>{modalBtnOpenTitle}</Text>
+                <TouchableOpacity style={modalBtnOpenStyle} onPress={()=>this.actionSheetRef.show()}>
+                    <Text style={modalBtnOpenTextStyle}>{actionSheetBtnOpenTitle}</Text>
                 </TouchableOpacity>
             )
 
         };
         const renderModalBtnClose = () => {
-
-
             const {modalBtnCloseStyle, modalBtnCloseTitle, modalBtnCloseTextStyle} = this.props;
 
             return (
-                <TouchableOpacity style={modalBtnCloseStyle} onPress={() => {
-                    setModalVisible(false)
-                }}>
-                    <Text style={modalBtnCloseTextStyle}>{modalBtnCloseTitle}</Text>
+                <TouchableOpacity style={modalBtnCloseStyle} onPress={() => {setActionSheetVisible(false)}}>
+                    <Text style={modalBtnCloseTextStyle}>{actionSheetBtnCloseTitle}</Text>
                 </TouchableOpacity>
             )
         };
-        const {modalProps, modalContainerStyle, modalCloseBtnContainerStyle} = this.props;
+        const actionSheetOptions = ()=>{
+            const {actionSheetBtnCloseTitle} = this.props;
+            const actionSheetArray = ['waze', 'googleMaps'];
+            if(Platform.OS === 'ios'){
+                actionSheetArray.push('maps')
+            }
+            actionSheetArray.push(actionSheetBtnCloseTitle)
+            return actionSheetArray
+
+        }
+        const {actionSheetTitle} = this.props;
+
         return (
             <React.Fragment>
-                {renderModalBtnOpen()}
-                <Modal {...modalProps} visible={this.state.modalVisible}>
-                    <View style={styles.modalStyle}>
-                        <View style={modalContainerStyle}>
-                            {this.renderNavigationAppsView()}
-                            <View style={modalCloseBtnContainerStyle}>
-                                {renderModalBtnClose()}
-                            </View>
-                        </View>
+                {renderActionSheetOpenBtn()}
+                <ActionSheet
+                    ref={ref => this.actionSheetRef = ref}
+                    title={actionSheetTitle}
+                    options={actionSheetOptions()}
+                    cancelButtonIndex={actionSheetOptions().length-1}
+                    destructiveButtonIndex={actionSheetOptions().length-1}
+                    onPress={(index) => {
 
-                    </View>
-                </Modal>
+                        if(index !== actionSheetOptions().length-1 ){
+                            this.handleNavApp(actionSheetOptions()[index])
+                        }
+
+
+                    }}
+                />
             </React.Fragment>
         )
     };
@@ -277,7 +285,7 @@ class NavigationApps extends Component {
             default:
                 return(
                     this.renderNavigationAppsView()
-                )
+                );
         }
 
 
@@ -334,13 +342,19 @@ NavigationApps.defaultProps = {
     viewContainerStyle: {},
     modalProps: {},
     modalContainerStyle: {},
-    modalBtnOpenTitle: '',
-    modalBtnCloseTitle: '',
+    modalBtnOpenTitle: 'open modal',
+    modalBtnCloseTitle: 'close modal',
     modalBtnCloseContainerStyle: {},
     modalBtnCloseStyle: {},
     modalBtnCloseTextStyle: {},
     modalBtnOpenTextStyle: {},
     modalBtnOpenStyle: {},
+    actionSheetBtnOpenTitle:'open action sheet',
+    actionSheetBtnCloseTitle:'close action sheet',
+    actionSheetTitle:'choose navigation app',
+    actionSheetBtnOpenStyle: {},
+    actionSheetBtnOpenTextStyle: {},
+
     address: '',
 
 
@@ -348,7 +362,7 @@ NavigationApps.defaultProps = {
 NavigationApps.propTypes = {
     appsOptions: PropTypes.object,
     iconSize: PropTypes.number,
-    viewMode: PropTypes.oneOf(['view', 'modal']),
+    viewMode: PropTypes.oneOf(['view', 'modal','sheet']),
     row: PropTypes.bool,
     address: PropTypes.string,
     containerStyle: View.propTypes.style,
@@ -360,7 +374,14 @@ NavigationApps.propTypes = {
     modalBtnOpenTextStyle: Text.propTypes.style,
     modalBtnOpenStyle: View.propTypes.style,
     modalProps: PropTypes.object,
-    modalContainerStyle: PropTypes.object
+    modalContainerStyle: PropTypes.object,
+    actionSheetBtnOpenTitle:PropTypes.string,
+    actionSheetBtnCloseTitle:PropTypes.string,
+    actionSheetTitle:PropTypes.string,
+    actionSheetBtnOpenStyle: View.propTypes.style,
+    actionSheetBtnOpenTextStyle: Text.propTypes.style,
+
+
 };
 
 export {NavigationApps}
