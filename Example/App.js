@@ -16,7 +16,9 @@ export default class App extends Component {
                     modalBtnOpenTextStyle={{fontSize:20}}
                     iconSize={100}
                     viewMode={'view'}
-                    address={"new york"}
+                    address={"חולון ההסתדרות 118"}
+                    googleMaps={{action:googleMapsActions.navigateByAddress,address:"חולון ההסתדרות 118"}}
+                    waze={{action:wazeActions.navigateByLatAndLon,lat:32.7940463,lon:34.989571}}
                 />
             </View>
         );

@@ -6,6 +6,7 @@
 	<array>
 		<string>comgooglemaps</string>
 		<string>waze</string>
+		<string>geo</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>

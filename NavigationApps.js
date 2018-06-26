@@ -66,14 +66,14 @@ class NavigationApps extends Component {
                         }
                     }),
                     ...Platform.select({
-                        ios:{
+                        ios: {
                             navigateByAddress: ({address, travelMode}) => this.state.navApps.googleMaps.appDeepLinkUriToUse + `daddr=${address}&directionsmode=${travelMode}`,
-                            navigateByLatAndLon: ({address, travelMode, lat, lon}) => encodeURI(this.state.navApps.maps.appDeepLinkUriToUse + `daddr=${address}&directionsmode=${travelMode}&ll=${lat},${lon}`),
+                            navigateByLatAndLon: ({address, travelMode, lat, lon}) => encodeURI(this.state.navApps.googleMaps.appDeepLinkUriToUse + `q=${address}&center=${lat},${lon}`),
                             searchLocationByLatAndLon: ({lat, lon}) => encodeURI(this.state.navApps.googleMaps.appDeepLinkUriToUse + `search/?api=1&query=${lat},${lon}`)
                         },
-                        android:{
+                        android: {
                             navigateByAddress: ({address, travelMode}) => this.state.navApps.googleMaps.appDeepLinkUriToUse + `dir/?api=1&destination=${address}&travelmode=${travelMode}`,
-                            navigateByLatAndLon: ({address, travelMode, lat, lon}) => encodeURI(this.state.navApps.googleMaps.appDeepLinkUriToUse + `dir/?api=1&query=${lat},${lon}`),
+                            navigateByLatAndLon: ({address, travelMode, lat, lon}) => encodeURI(this.state.navApps.googleMaps.appDeepLinkUriToUse + `search/?api=1&query=${lat},${lon}`),
                             searchLocationByLatAndLon: ({lat, lon}) => encodeURI(this.state.navApps.googleMaps.appDeepLinkUriToUse + `search/?api=1&query=${lat},${lon}`)
                         }
                     }),
@@ -169,7 +169,7 @@ class NavigationApps extends Component {
         const renderModalBtnClose = () => {
 
 
-            const {modalBtnCloseStyle,modalBtnCloseTitle, modalBtnCloseTextStyle} = this.props;
+            const {modalBtnCloseStyle, modalBtnCloseTitle, modalBtnCloseTextStyle} = this.props;
 
             return (
                 <TouchableOpacity style={modalBtnCloseStyle} onPress={() => {
@@ -200,6 +200,56 @@ class NavigationApps extends Component {
         )
     };
 
+    renderNavigationAppsAsActionSheet = () => {
+
+        const setModalVisible = (visible) => {
+            this.setState({modalVisible: visible});
+        };
+        const renderModalBtnOpen = () => {
+
+            const {modalBtnOpenStyle, modalBtnOpenTitle, modalBtnOpenTextStyle} = this.props;
+
+            return (
+                <TouchableOpacity style={modalBtnOpenStyle} onPress={() => {
+                    setModalVisible(true)
+                }}>
+                    <Text style={modalBtnOpenTextStyle}>{modalBtnOpenTitle}</Text>
+                </TouchableOpacity>
+            )
+
+        };
+        const renderModalBtnClose = () => {
+
+
+            const {modalBtnCloseStyle, modalBtnCloseTitle, modalBtnCloseTextStyle} = this.props;
+
+            return (
+                <TouchableOpacity style={modalBtnCloseStyle} onPress={() => {
+                    setModalVisible(false)
+                }}>
+                    <Text style={modalBtnCloseTextStyle}>{modalBtnCloseTitle}</Text>
+                </TouchableOpacity>
+            )
+        };
+        const {modalProps, modalContainerStyle, modalCloseBtnContainerStyle} = this.props;
+        return (
+            <React.Fragment>
+                {renderModalBtnOpen()}
+                <Modal {...modalProps} visible={this.state.modalVisible}>
+                    <View style={styles.modalStyle}>
+                        <View style={modalContainerStyle}>
+                            {this.renderNavigationAppsView()}
+                            <View style={modalCloseBtnContainerStyle}>
+                                {renderModalBtnClose()}
+                            </View>
+                        </View>
+
+                    </View>
+                </Modal>
+            </React.Fragment>
+        )
+    };
+
     renderNavigationAppsView = () => {
         const {row, viewContainerStyle} = this.props;
         return (
@@ -209,10 +259,34 @@ class NavigationApps extends Component {
         )
     };
 
-    render() {
+    renderMainView = () => {
         const {viewMode} = this.props;
+        switch (viewMode) {
+            case "view":
+                return (
+                    this.renderNavigationAppsView()
+                );
+            case "modal" :
+                return(
+                    this.renderNavigationAppsAsModal()
+                );
+            case "sheet":
+                return(
+                    this.renderNavigationAppsAsActionSheet()
+                );
+            default:
+                return(
+                    this.renderNavigationAppsView()
+                )
+        }
+
+
+    };
+
+    render() {
+
         return (
-            viewMode === 'view' ? this.renderNavigationAppsView() : this.renderNavigationAppsAsModal()
+            this.renderMainView()
         )
     }
 }
@@ -259,7 +333,7 @@ NavigationApps.defaultProps = {
     row: false,
     viewContainerStyle: {},
     modalProps: {},
-    modalContainerStyle:{},
+    modalContainerStyle: {},
     modalBtnOpenTitle: '',
     modalBtnCloseTitle: '',
     modalBtnCloseContainerStyle: {},
@@ -286,7 +360,7 @@ NavigationApps.propTypes = {
     modalBtnOpenTextStyle: Text.propTypes.style,
     modalBtnOpenStyle: View.propTypes.style,
     modalProps: PropTypes.object,
-    modalContainerStyle:PropTypes.object
+    modalContainerStyle: PropTypes.object
 };
 
 export {NavigationApps}
