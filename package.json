@@ -1,12 +1,12 @@
 {
   "name": "react-native-navigation-apps",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Open & Navigate With External Navigation Apps (Waze,GoogleMaps,iOS Maps) from react native",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "npm-version" :"npm version patch",
-    "npm-publish" :"npm publish"
+    "npm-version": "npm version patch",
+    "npm-publish": "npm publish"
   },
   "repository": {
     "type": "git",
