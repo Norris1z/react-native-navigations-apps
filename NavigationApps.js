@@ -7,7 +7,8 @@ import {
     View,
     Modal,
     Text,
-    StyleSheet
+    StyleSheet,
+    ViewPropTypes,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import {googleMapsActions, mapsActions, wazeActions} from "./NavigationAppsTools";
@@ -356,20 +357,20 @@ NavigationApps.propTypes = {
     viewMode: PropTypes.oneOf(['view', 'modal','sheet']),
     row: PropTypes.bool,
     address: PropTypes.string,
-    containerStyle: View.propTypes.style,
+    containerStyle: ViewPropTypes.style,
     modalBtnOpenTitle: PropTypes.string,
     modalBtnCloseTitle: PropTypes.string,
-    modalBtnCloseContainerStyle: View.propTypes.style,
-    modalBtnCloseStyle: View.propTypes.style,
+    modalBtnCloseContainerStyle: ViewPropTypes.style,
+    modalBtnCloseStyle: ViewPropTypes.style,
     modalBtnCloseTextStyle: Text.propTypes.style,
     modalBtnOpenTextStyle: Text.propTypes.style,
-    modalBtnOpenStyle: View.propTypes.style,
+    modalBtnOpenStyle: ViewPropTypes.style,
     modalProps: PropTypes.object,
     modalContainerStyle: PropTypes.object,
     actionSheetBtnOpenTitle:PropTypes.string,
     actionSheetBtnCloseTitle:PropTypes.string,
     actionSheetTitle:PropTypes.string,
-    actionSheetBtnOpenStyle: View.propTypes.style,
+    actionSheetBtnOpenStyle: ViewPropTypes.style,
     actionSheetBtnOpenTextStyle: Text.propTypes.style,
 
 
