@@ -207,22 +207,13 @@ class NavigationApps extends Component {
 
 
         const renderActionSheetOpenBtn = () => {
-            const {modalBtnOpenStyle, actionSheetBtnOpenTitle, modalBtnOpenTextStyle} = this.props;
+            const {actionSheetBtnOpenStyle, actionSheetBtnOpenTitle, actionSheetBtnOpenTextStyle} = this.props;
             return (
-                <TouchableOpacity style={modalBtnOpenStyle} onPress={()=>this.actionSheetRef.show()}>
-                    <Text style={modalBtnOpenTextStyle}>{actionSheetBtnOpenTitle}</Text>
+                <TouchableOpacity style={actionSheetBtnOpenStyle} onPress={()=>this.actionSheetRef.show()}>
+                    <Text style={actionSheetBtnOpenTextStyle}>{actionSheetBtnOpenTitle}</Text>
                 </TouchableOpacity>
             )
 
-        };
-        const renderModalBtnClose = () => {
-            const {modalBtnCloseStyle, modalBtnCloseTitle, modalBtnCloseTextStyle} = this.props;
-
-            return (
-                <TouchableOpacity style={modalBtnCloseStyle} onPress={() => {setActionSheetVisible(false)}}>
-                    <Text style={modalBtnCloseTextStyle}>{actionSheetBtnCloseTitle}</Text>
-                </TouchableOpacity>
-            )
         };
         const actionSheetOptions = ()=>{
             const {actionSheetBtnCloseTitle} = this.props;
@@ -233,7 +224,7 @@ class NavigationApps extends Component {
             actionSheetArray.push(actionSheetBtnCloseTitle)
             return actionSheetArray
 
-        }
+        };
         const {actionSheetTitle} = this.props;
 
         return (

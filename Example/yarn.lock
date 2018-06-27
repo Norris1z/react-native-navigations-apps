@@ -4146,11 +4146,12 @@ react-native-actionsheet@^2.4.2:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/react-native-actionsheet/-/react-native-actionsheet-2.4.2.tgz#6a00dd51a75ef2c8974312130e405af73191500f"
 
-react-native-navigation-apps@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/react-native-navigation-apps/-/react-native-navigation-apps-1.0.4.tgz#174de69c3997ab62126921e3f0ad5d20c33df00b"
+react-native-navigation-apps@^1.0.15:
+  version "1.0.15"
+  resolved "https://registry.yarnpkg.com/react-native-navigation-apps/-/react-native-navigation-apps-1.0.15.tgz#7c285669e11e475de374710ec5e1323ad8e730a5"
   dependencies:
     prop-types "^15.6.1"
+    react-native-actionsheet "^2.4.2"
 
 react-native@0.55.4:
   version "0.55.4"
