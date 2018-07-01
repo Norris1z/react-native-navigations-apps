@@ -111,7 +111,6 @@ class NavigationApps extends Component {
 
     handleNavApp = (navApp) => {
 
-        debugger
         const navAppOptions = this.props[navApp];
         const navAppItem = this.state.navApps[navApp];
         const {storeUri, appDeepLinkUri} = navAppItem;
@@ -222,7 +221,7 @@ class NavigationApps extends Component {
             if(Platform.OS === 'ios'){
                 actionSheetArray.push('maps')
             }
-            actionSheetArray.push(actionSheetBtnCloseTitle)
+            actionSheetArray.push(actionSheetBtnCloseTitle);
             return actionSheetArray
 
         };
