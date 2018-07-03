@@ -158,12 +158,10 @@ class NavigationApps extends Component {
         };
         const renderModalBtnOpen = () => {
 
-            const {modalBtnOpenStyle, modalBtnOpenTitle, modalBtnOpenTextStyle} = this.props;
+            const {modalBtnOpenStyle, modalBtnOpenTitle, modalBtnOpenTextStyle,modalBtnOpenDisable} = this.props;
 
             return (
-                <TouchableOpacity style={modalBtnOpenStyle} onPress={() => {
-                    setModalVisible(true)
-                }}>
+                <TouchableOpacity style={modalBtnOpenStyle} onPress={() => modalBtnOpenDisable ? null : setModalVisible(true)}>
                     <Text style={modalBtnOpenTextStyle}>{modalBtnOpenTitle}</Text>
                 </TouchableOpacity>
             )
@@ -207,9 +205,9 @@ class NavigationApps extends Component {
 
 
         const renderActionSheetOpenBtn = () => {
-            const {actionSheetBtnOpenStyle, actionSheetBtnOpenTitle, actionSheetBtnOpenTextStyle} = this.props;
+            const {actionSheetBtnOpenStyle, actionSheetBtnOpenTitle, actionSheetBtnOpenTextStyle,actionSheetBtnOpenDisable} = this.props;
             return (
-                <TouchableOpacity style={actionSheetBtnOpenStyle} onPress={()=>this.actionSheetRef.show()}>
+                <TouchableOpacity style={actionSheetBtnOpenStyle} onPress={()=> actionSheetBtnOpenDisable ? null : this.actionSheetRef.show()}>
                     <Text style={actionSheetBtnOpenTextStyle}>{actionSheetBtnOpenTitle}</Text>
                 </TouchableOpacity>
             )
@@ -340,12 +338,13 @@ NavigationApps.defaultProps = {
     modalBtnCloseTextStyle: {},
     modalBtnOpenTextStyle: {},
     modalBtnOpenStyle: {},
+    modalBtnDisable: false,
     actionSheetBtnOpenTitle:'open action sheet',
     actionSheetBtnCloseTitle:'close action sheet',
     actionSheetTitle:'choose navigation app',
     actionSheetBtnOpenStyle: {},
     actionSheetBtnOpenTextStyle: {},
-
+    actionSheetBtnOpenDisable:false,
     address: '',
 
 
@@ -371,6 +370,8 @@ NavigationApps.propTypes = {
     actionSheetTitle:PropTypes.string,
     actionSheetBtnOpenStyle: ViewPropTypes.style,
     actionSheetBtnOpenTextStyle: Text.propTypes.style,
+    actionSheetBtnOpenDisable:PropTypes.bool,
+    modalBtnOpenDisable:PropTypes.bool
 
 
 };
